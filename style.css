@@ -1,1 +1,132 @@
+#logo {
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
+body {
+    background: #caf0fa;
+}
+
+#current-header {
+    text-align: center;
+}
+
+#search-header {
+    color: #023e8a;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    color: #023e8a;
+}
+
+::placeholder {
+    color: #023e8a;
+}
+
+.hidden {
+    display: none;
+}
+
+#name {
+    text-align: center;
+    font-family: Georgia, sans-serif;
+    font-size: 5em;
+    letter-spacing: -2px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #023e8a;
+}
+
+#poster {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 350px;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+#search-term {
+    height: 25px;
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    background-color: #ade8f4;
+    color: #023e8a;
+    border-radius: 40px;
+}
+
+#search-area {
+    display: flex;
+    justify-content: center;
+}
+
+#clicker {
+    width: 80px;
+    height: 50px;
+    border-style: solid;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 40px;
+    color: #023e8a;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.movie-area {
+    padding: 5px;
+    display: inline-block;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#movie-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    flex-flow: column wrap;
+}
+
+#current-movies {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    flex-flow: column wrap;
+}
+
+#title {
+    font-style: normal;
+    text-align: center;
+    color: #023e8a;
+}
+
+#show-more {
+    display: flex;
+    margin: auto;
+    background-color: #023e8a;
+    border-radius: 10px;
+    color: #caf0fa;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    justify-content: center;
+}
+
+#votes {
+    font-style: italic;
+    text-align: center;
+    color: #023e8a;
+}
