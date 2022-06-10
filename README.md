@@ -2,7 +2,7 @@
 
 Submitted by: **Jose Folgar**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **12** hours spent in total
 
 Deployed Application (optional): https://josemario3.github.io/flixster_starter/
 
@@ -40,9 +40,7 @@ Deployed Application (optional): https://josemario3.github.io/flixster_starter/
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or movie actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+https://youtu.be/7yQsC8_o4CA
 
 ### Reflection
 
@@ -56,7 +54,7 @@ If I had more time, the first thing I would do is put much more time into css st
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+My project demo went well. I was able to show off all the features that I have added to my website. Overall, I'm glad almost everything works as I wanted it to. Some things that didn't go as planned was that I wasn't able to get the grid to view well without using display: grid. I really wanted it to work using display: flex, but it looks good regardless. Some things my peers did that I would like to try is color coding the ratings, creating a 'back-to-top' button, and completing the pop-up.
 
 ### Open-source libraries used
 
