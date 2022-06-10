@@ -18,12 +18,16 @@
         </div>
     </form>
     <div id="current-header">
-        <h2>Now Showing</h2>
+        <h2 id="now-showing">Now Showing:</h2>
     </div>
-    <button id="close-search-btn" class="hidden">Current Movies</button>
-    <div id="search-header" class="hidden"></div>
+    <div id="search-space">
+        <button id="close-search-btn" class="hidden">Current Movies</button>
+        <div id="search-header" class="hidden"></div>
+    </div>
     <div id="movies-grid"></div>
-    <button id="load-more-movies-btn" class="hidden">Show More</button>
+    <div id="show-more-area">
+        <button id="load-more-movies-btn" class="hidden">Show More</button>
+    </div>
     <img src="logo.svg" id="logo" alt="Powered by The Movie db" />
     <script src="script.js"></script>
 </body>

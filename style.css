@@ -6,11 +6,15 @@ body {
     width: 100px;
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
 }
 
 #current-header {
-    text-align: center;
+    text-align: left;
+    color: #023e8a;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 22px;
 }
 
 #search-header {
@@ -55,14 +59,16 @@ body {
 }
 
 #search-input {
-    height: 25px;
-    width: 300px;
+    height: 20px;
+    width: 350px;
     padding: 10px;
     font-size: 18px;
     letter-spacing: 2px;
     background-color: #ade8f4;
     color: #023e8a;
     border-radius: 40px;
+    padding-left: 15px;
+    vertical-align: center;
 }
 
 #search-area {
@@ -71,16 +77,40 @@ body {
 }
 
 #clicker {
-    width: 80px;
-    height: 50px;
-    border-style: solid;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 40px;
+    background-color: #00b4d8;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+    box-sizing: border-box;
     color: #023e8a;
-    background-color: transparent;
     cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.15385;
     margin-left: 10px;
+    margin-top: 5px;
+    padding: 8px 0.8em;
+    text-align: center;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    height: 35px;
+    width: 100px;
+}
+
+#clicker:hover,
+#clicker:focus {
+    background-color: #07c;
+}
+
+#clicker:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+#clicker:active {
+    background-color: #023e8a;
+    box-shadow: none;
 }
 
 .movie-card {
@@ -88,14 +118,17 @@ body {
     display: inline-block;
     flex-direction: column;
     flex-wrap: wrap;
+    background: #00b4d8;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 #movies-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 0px;
+    margin-bottom: 0px;
     flex-flow: column wrap;
 }
 
@@ -103,42 +136,120 @@ body {
     font-style: normal;
     text-align: center;
     color: #023e8a;
+    font-weight: bold;
+    margin-bottom: 0px;
+    font-size: 18px;
 }
 
 #load-more-movies-btn {
     display: flex;
-    margin: auto;
-    background-color: #023e8a;
-    border-radius: 10px;
-    color: #caf0fa;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #00b4d8;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #023e8a;
     cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.15385;
+    margin-top: 20px;
+    padding: 8px 0.8em;
+    text-align: center;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    height: 35px;
+}
+
+#load-more-movies-btn:hover,
+#load-more-movies-btn:focus {
+    background-color: #07c;
+}
+
+#load-more-movies-btn:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+#load-more-movies-btn:active {
+    background-color: #023e8a;
+    box-shadow: none;
+}
+
+#director {
+    height: 20px;
+    width: 20px;
+}
+
+.vote-icon {
+    display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .movie-votes {
     font-style: italic;
     text-align: center;
     color: #023e8a;
+    font-size: 16px;
+    margin: 0px;
+    margin-left: 5px;
 }
 
 #close-search-btn {
-    width: 120px;
-    height: 40px;
-    border-style: solid;
-    font-size: 12px;
-    font-weight: bold;
+    background-color: #00b4d8;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+    box-sizing: border-box;
     color: #023e8a;
-    background-color: transparent;
     cursor: pointer;
-    margin-right: 20px;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.15385;
+    margin-right: 30px;
+    margin-top: 18px;
+    padding: 8px 0.8em;
+    text-align: center;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    height: 35px;
+}
+
+#close-search-btn:hover,
+#close-search-btn:focus {
+    background-color: #07c;
+}
+
+#close-search-btn:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+#close-search-btn:active {
+    background-color: #023e8a;
+    box-shadow: none;
+}
+
+#search-space {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+#show-more-area {
+    display: flex;
+    justify-content: center;
 }
 
 #search-show {
     margin-left: 30px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     font-size: 19px;
+}
+
+#now-showing {
+    margin-bottom: 10px;
 }

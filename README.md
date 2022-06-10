@@ -62,6 +62,13 @@ Add your response here
 
 - Add any links to open-source libraries used in your project.
 
+https://getcssscan.com/css-buttons-examples
+(button styling)
+https://coolors.co/palettes/trending
+(color pallete)
+https://icon-icons.com/icon/director-movie-cinema/96958
+(movie-director icon)
+
 ### Shout out
 
 Shout out to my partners, Wynee and \_\_\_\_, because they were awesome and great to work with. Also, shout out to Tatiana and Doug for helping me with the project when I got stuck. Their help saved me a ton of time and was greatly appreciated.

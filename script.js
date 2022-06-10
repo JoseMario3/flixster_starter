@@ -30,14 +30,14 @@ function handleFormSubmit(evt) {
     pageNum = 1;
     searching = true;
     moviesGrid.innerHTML = "";
+    searchHeader.innerHTML = "";
     currentHeader.classList.add("hidden");
-
-    // if (showMoreBtn.classList.contains("hidden")) {
-    //     showMoreBtn.classList.add("hidden");
-    //}
-
     values = evt.target.movie.value;
     getMovies(evt);
+
+    if (!showMoreBtn.classList.contains("hidden")) {
+        showMoreBtn.classList.add("hidden");
+    }
 
     if (evt) {
         searchHeader.classList.remove("hidden");
@@ -86,12 +86,16 @@ function generateMovies(movieData) {
         }
         moviesGrid.innerHTML += `
             <div class="movie-card">
-            <img src = "https://image.tmdb.org/t/p/original${img.poster_path}"  class="movie-poster" alt="movie poster" />
+            <img src = "https://image.tmdb.org/t/p/original${img.poster_path}"  class="movie-poster" alt="poster for ${img.title}" />
             <p class="movie-title">${img.title}</p>
-            <p class="movie-votes">Votes: ${img.vote_average}</p>
+            <div class="vote-icon">
+                <img src="director.png" id="director" alt="Movie Director Icon" />
+                <p class="movie-votes">Votes: ${img.vote_average}</p>
+            </div>
             </div>
         `;
     });
+
     if (pageNum == movieData.total_pages) {
         showMoreBtn.classList.add("hidden");
     } else {
@@ -114,6 +118,9 @@ function handleCloseSearch(evt) {
     searching = false;
     moviesGrid.innerHTML = "";
     getMovies(evt);
+    closeSearchBtn.classList.add("hidden");
+    currentHeader.classList.remove("hidden");
+    searchHeader.innerHTML = "";
 }
 
 //loads current movies when page is opened/refreshed
