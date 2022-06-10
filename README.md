@@ -4,7 +4,7 @@ Submitted by: **Jose Folgar**
 
 Estimated time spent: **#** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): https://josemario3.github.io/flixster_starter/
 
 ### Application Features
 
@@ -32,7 +32,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] Deploy website using GitHub Pages.
+- [x] Deploy website using GitHub Pages.
 - [ ] Allow user to view more details about a movie within a popup.
 - [ ] Improve the user experience through CSS & animation.
 - [ ] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
@@ -71,4 +71,4 @@ https://icon-icons.com/icon/director-movie-cinema/96958
 
 ### Shout out
 
-Shout out to my partners, Wynee and \_\_\_\_, because they were awesome and great to work with. Also, shout out to Tatiana and Doug for helping me with the project when I got stuck. Their help saved me a ton of time and was greatly appreciated.
+Shout out to my partners, Wynee and Folasade, because they were awesome people and great to work with. Also, shout out to Tatiana and Doug for helping me with the project when I got stuck. Their help saved me a ton of time and was greatly appreciated.
