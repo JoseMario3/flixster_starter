@@ -1,29 +1,27 @@
-//Global Constants
+//Global Constant, API Key
 const apiKey = "017b97b7179fec2b73979d58f5d79972";
 const limit = 0;
 
-//askTA
-//value error
-//0
-
-//variants for "show more" button
+//Global variables
 let offset = 9;
 let pageNum = 1;
 let values = "";
-let searching = true;
+let apiUrl = "";
+let searching = false; //switching between current and search movies
 
 //DOM
 let movieForm = document.querySelector("form");
-let movieResults = document.querySelector("#movie-results");
-let showMoreButton = document.querySelector("#show-more");
-let currentMovies = document.querySelector("#current-movies");
+let moviesGrid = document.querySelector("#movies-grid");
+let showMoreBtn = document.querySelector("#load-more-movies-btn");
 let currentHeader = document.querySelector("#current-header");
 let searchHeader = document.querySelector("#search-header");
+let closeSearchBtn = document.querySelector("#close-search-btn");
 
-//eventListeners to show movies
+//eventListeners for when someone searches for a movie, clicks the 'show more' button,
+//or clicks the 'current movies' button
 movieForm.addEventListener("submit", handleFormSubmit);
-showMoreButton.addEventListener("click", showMore);
-//currentMovies.addEventListener("pageshow", getCurrent);
+showMoreBtn.addEventListener("click", showMore);
+closeSearchBtn.addEventListener("click", handleCloseSearch);
 
 //sets up for the api call and show more functions when
 //user presses the submit or show more buttons
@@ -31,113 +29,95 @@ function handleFormSubmit(evt) {
     evt.preventDefault();
     pageNum = 1;
     searching = true;
-    movieResults.innerHTML = "";
-    currentMovies.innerHTML = "";
-    searchHeader.innerHTML = "";
+    moviesGrid.innerHTML = "";
     currentHeader.classList.add("hidden");
 
-    if (showMoreButton.classList.contains("hidden")) {
-        showMoreButton.classList.add("hidden");
-    }
+    // if (showMoreBtn.classList.contains("hidden")) {
+    //     showMoreBtn.classList.add("hidden");
+    //}
 
     values = evt.target.movie.value;
+    getMovies(evt);
 
-    getResults(evt);
-
-    searchHeader.classList.remove("hidden");
-    searchHeader.innerHTML += `
-        <h4 id="search-header"> Showing search results for: ${movieForm.movie.value} </h4>
-    `;
+    if (evt) {
+        searchHeader.classList.remove("hidden");
+        closeSearchBtn.classList.remove("hidden");
+        searchHeader.innerHTML += `
+            <h4 id="search-show"> Showing search results for: ${movieForm.movie.value} </h4>
+        `;
+    }
 
     if (!movieForm.movie.value == "") {
         movieForm.movie.value = "";
     }
 }
 
-async function getCurrent() {
-    let apiUrl =
-        "https://api.themoviedb.org/3/movie/now_playing?page=" +
-        pageNum +
-        "&api_key=" +
-        apiKey +
-        "&query=" +
-        values;
-    let response = await fetch(apiUrl);
-    let responseData = await response.json();
-    generateCurrent(responseData);
-}
-
-function generateCurrent(currentData) {
-    //console.log(currentData);
-    currentData.results.forEach((img) => {
-        if (img.poster_path == null) {
-            return;
-        }
-        currentMovies.innerHTML += `
-            <div class="movie-area">
-            <img src = "https://image.tmdb.org/t/p/original${img.poster_path}"  id=poster alt="movie poster" />
-            <p id="title">${img.title}</p>
-            <p id="votes">Votes: ${img.vote_average}</p>
-            </div>
-        `;
-    });
-    if (pageNum == currentData.total_pages) {
-        showMoreButton.classList.add("hidden");
-    } else {
-        showMoreButton.classList.remove("hidden");
+//calls api to retrieve current or searched movies
+async function getMovies(evt) {
+    if (evt) {
+        evt.preventDefault();
     }
-}
+    if (searching) {
+        apiUrl =
+            "https://api.themoviedb.org/3/search/movie?page=" +
+            pageNum +
+            "&api_key=" +
+            apiKey +
+            "&query=" +
+            values;
+    } else {
+        apiUrl =
+            "https://api.themoviedb.org/3/movie/now_playing?page=" +
+            pageNum +
+            "&api_key=" +
+            apiKey;
+    }
 
-//calls api to retrieve movieS
-async function getResults(evt) {
-    let apiUrl =
-        "https://api.themoviedb.org/3/search/movie?page=" +
-        pageNum +
-        "&api_key=" +
-        apiKey +
-        "&query=" +
-        values;
     let response = await fetch(apiUrl);
     let responseData = await response.json();
-    generateHTML(responseData);
+    generateMovies(responseData);
 }
 
-//uses JSON from api retrieval to print out movieS on webpage
-function generateHTML(movieData) {
-    //console.log(movieData);
+//uses JSON from api retrieval to print out movies on webpage
+function generateMovies(movieData) {
     movieData.results.forEach((img) => {
         if (img.poster_path == null) {
             return;
         }
-        movieResults.innerHTML += `
-            <div class="movie-area">
-            <img src = "https://image.tmdb.org/t/p/original${img.poster_path}"  id=poster alt="movie poster" />
-            <p id="title">${img.title}</p>
-            <p id="votes">Votes: ${img.vote_average}</p>
+        moviesGrid.innerHTML += `
+            <div class="movie-card">
+            <img src = "https://image.tmdb.org/t/p/original${img.poster_path}"  class="movie-poster" alt="movie poster" />
+            <p class="movie-title">${img.title}</p>
+            <p class="movie-votes">Votes: ${img.vote_average}</p>
             </div>
         `;
     });
-
     if (pageNum == movieData.total_pages) {
-        showMoreButton.classList.add("hidden");
+        showMoreBtn.classList.add("hidden");
     } else {
-        showMoreButton.classList.remove("hidden");
+        showMoreBtn.classList.remove("hidden");
     }
 }
 
-//makes the "show more" button work
+//causes more movies to show up on the screen, without refreshing the page
 function showMore(evt) {
+    console.log("showing more");
     pageNum++;
     offset = pageNum * limit;
-    showMoreButton.classList.add("hidden");
-    if (searching) {
-        getResults(evt);
-    } else {
-        getCurrent(evt);
-    }
+    showMoreBtn.classList.add("hidden");
+    getMovies(evt);
 }
 
+//tells the getMovies function to get current movies (instead of searched movies)
+function handleCloseSearch(evt) {
+    pageNum = 1;
+    searching = false;
+    moviesGrid.innerHTML = "";
+    getMovies(evt);
+}
+
+//loads current movies when page is opened/refreshed
 window.onload = function() {
-    getCurrent();
+    getMovies();
     searching = false;
 };

@@ -1,12 +1,12 @@
+body {
+    background: #caf0fa;
+}
+
 #logo {
     width: 100px;
     position: absolute;
     top: 10px;
     left: 10px;
-}
-
-body {
-    background: #caf0fa;
 }
 
 #current-header {
@@ -15,6 +15,9 @@ body {
 
 #search-header {
     color: #023e8a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .search-bar {
@@ -41,7 +44,7 @@ body {
     color: #023e8a;
 }
 
-#poster {
+.movie-poster {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -51,7 +54,7 @@ body {
     border-radius: 20px;
 }
 
-#search-term {
+#search-input {
     height: 25px;
     width: 300px;
     padding: 10px;
@@ -80,14 +83,14 @@ body {
     margin-left: 10px;
 }
 
-.movie-area {
+.movie-card {
     padding: 5px;
     display: inline-block;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-#movie-results {
+#movies-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
@@ -96,22 +99,13 @@ body {
     flex-flow: column wrap;
 }
 
-#current-movies {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    flex-flow: column wrap;
-}
-
-#title {
+.movie-title {
     font-style: normal;
     text-align: center;
     color: #023e8a;
 }
 
-#show-more {
+#load-more-movies-btn {
     display: flex;
     margin: auto;
     background-color: #023e8a;
@@ -125,8 +119,26 @@ body {
     justify-content: center;
 }
 
-#votes {
+.movie-votes {
     font-style: italic;
     text-align: center;
     color: #023e8a;
+}
+
+#close-search-btn {
+    width: 120px;
+    height: 40px;
+    border-style: solid;
+    font-size: 12px;
+    font-weight: bold;
+    color: #023e8a;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#search-show {
+    margin-left: 30px;
+    margin-bottom: 0px;
+    font-size: 19px;
 }

@@ -13,17 +13,17 @@
     <h1 id="name">Mister Flixster</h1>
     <form action="" method="get" class="search-area">
         <div class="search-bar">
-            <input type="text" name="movie" id="search-term" placeholder="search for movies" required />
+            <input type="text" name="movie" id="search-input" placeholder="search for movies" required />
             <button id="clicker">Enter</button>
         </div>
     </form>
     <div id="current-header">
         <h2>Now Showing</h2>
     </div>
+    <button id="close-search-btn" class="hidden">Current Movies</button>
     <div id="search-header" class="hidden"></div>
-    <div id="current-movies"></div>
-    <div id="movie-results"></div>
-    <button id="show-more" class="hidden">Show More</button>
+    <div id="movies-grid"></div>
+    <button id="load-more-movies-btn" class="hidden">Show More</button>
     <img src="logo.svg" id="logo" alt="Powered by The Movie db" />
     <script src="script.js"></script>
 </body>
